@@ -2,6 +2,10 @@ import Vue from 'vue'
 import App from './App.vue'
 import store from './store'
 
+// https://bootstrap-vue.js.org/docs/#using-module-bundlers
+import 'bootstrap/dist/css/bootstrap.css'
+import 'bootstrap-vue/dist/bootstrap-vue.css'
+
 Vue.config.productionTip = false
 
 new Vue({

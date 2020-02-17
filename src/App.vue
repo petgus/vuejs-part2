@@ -1,17 +1,24 @@
 <template>
-  <div id="app">
+  <div id="app" class="container">
     <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+
+    
+    <CategoryAdmin msg="Guten tag!"/>
+    
+    <hr />
+    <SomeComponent />
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import CategoryAdmin from './components/CategoryAdmin.vue'
+import SomeComponent from './components/SomeComponent.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    CategoryAdmin,
+    SomeComponent
   }
 }
 </script>
