@@ -1,26 +1,43 @@
+/*
+* Example using Axios and Json-server 
+*/
+
 import Vue from 'vue'
 import Vuex from 'vuex'
+import axios from 'axios'
+import VueAxios from 'vue-axios'
 
 Vue.use(Vuex)
+Vue.use(VueAxios, axios)
+
+const baseUrl = 'http://localhost:3000';
 
 export default new Vuex.Store({
   // Initial state  
   state: {
-      isLoading: false,
-      categories: [
-        {"id": 1, "name": "Vue", "colorHue": 50},
-        {"id": 2, "name": "Sass", "colorHue": 50},
-        {"id": 3, "name": "Html", "colorHue": 50},
-        {"id": 4, "name": "Webpack", "colorHue": 50}
-      ]
+      categories: []
   },
-//   actions: {
-//       saveCategories({commit}, categories) {
-//            commit('SAVE_CATEGORIES',categories);
-//        }
-//   },
+  actions: {
+      loadCategories({commit}){
+       
+            axios
+            .get(baseUrl +'/categories')
+            .then(response => {
+                console.log('Got some categories!', response.data);
+                commit('SET_CATEGORIES',response.data);
+            })
+            .catch(function (error) {
+                // handle error
+                console.log('Axios caught an error', error);
+            });
+        
+      },
+      saveCategories({commit}, categories) {
+           commit('SET_CATEGORIES',categories);
+       }
+  },
   mutations: {
-      SAVE_CATEGORIES(state, categories){
+      SET_CATEGORIES(state, categories){
           state.categories = categories;
       }
   },

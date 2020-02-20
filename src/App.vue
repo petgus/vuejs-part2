@@ -19,6 +19,9 @@ export default {
   components: {
     CategoryAdmin,
     SomeComponent
+  },
+  mounted() {
+    this.$store.dispatch('loadCategories');
   }
 }
 </script>

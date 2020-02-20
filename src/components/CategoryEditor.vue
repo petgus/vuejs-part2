@@ -6,9 +6,6 @@
       <p v-if="value.id">We are editing category.id = {{value.id}}</p>
       <input ref="name" type="text" v-model="localCategory.name" placeholder="Enter category name" />
 
-      <!-- Direct change via 2-way binding. Not using a local copy -->
-      <!-- <input type="text" v-model="value.name" placeholder="Enter category name" /> -->
-      
        <color-picker :hue="localCategory.colorHue" @input="colorChange"></color-picker>
 
     </b-modal>

@@ -35,19 +35,10 @@ export default {
     CategoryEditor
   },
   mixins: [HslColor],
-//   data() {
-//     return {
-//       categories: [
-//           {"id": 1, "name": "Vue", "colorHue": 50},
-//           {"id": 2, "name": "Sass", "colorHue": 50},
-//           {"id": 3, "name": "Webpack", "colorHue": 50}
-//       ]
-//     };
-//   },
     watch: {
         categories: function(){
-            console.warn('Categories changed. We need to save!');
-            // this.$store.commit('SAVE_CATEGORIES',this.categories);
+             console.warn('Categories changed. We need to save!');
+             this.$store.commit('SET_CATEGORIES',this.categories);
         }
     },
     methods: {
@@ -55,16 +46,12 @@ export default {
             var itemToMove = this.categories[index];
             this.categories.splice(index,1);
             this.categories.splice(newIndex,0, itemToMove);
-            
         }
     },
     computed: {
         categories () {
             return this.$store.state.categories;
-        },
-        // isLoading () {
-        //     return this.$store.state.isLoading;
-        // }
+        },  
     }
 };
 </script>

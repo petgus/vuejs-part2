@@ -22,8 +22,8 @@ export default {
     computed: {
         categories () {
             return this.$store.state.categories;
-        },
-    }
+        }       
+    },
 };
 </script>
 <style scoped>
